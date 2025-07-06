@@ -1,0 +1,14 @@
+services:
+  # Serviço da API FastAPI
+  api:
+    # Constrói a imagem a partir do Dockerfile na pasta atual (.)
+    build: .
+    container_name: api
+    # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina.
+    ports:
+      - "8000:8000"
+    # Monta o diretório atual no contêiner para que as alterações no código
+    # sejam refletidas instantaneamente. Isso também garante que o banco de dados
+    # SQLite (escola.db) seja salvo na sua máquina local.
+    volumes:
+      - .:/app
